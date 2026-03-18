@@ -1,0 +1,197 @@
+/* Scientific Calculator Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.calculator-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.display {
+    background: #2c3e50;
+    color: white;
+    padding: 25px 20px;
+    text-align: right;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.previous-operand {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    min-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.current-operand {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #ddd;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    background: white;
+    padding: 20px 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    min-height: 70px;
+}
+
+.btn:hover {
+    background: #f5f5f5;
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.operator {
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+.operator:hover {
+    background: #2980b9;
+}
+
+.function {
+    background: #9b59b6;
+    color: white;
+}
+
+.function:hover {
+    background: #8e44ad;
+}
+
+.number {
+    background: #ecf0f1;
+}
+
+.number:hover {
+    background: #d5dbdb;
+}
+
+.decimal {
+    background: #ecf0f1;
+}
+
+.decimal:hover {
+    background: #d5dbdb;
+}
+
+.equals {
+    background: #e74c3c;
+    color: white;
+    font-weight: bold;
+}
+
+.equals:hover {
+    background: #c0392b;
+}
+
+.clear {
+    background: #f39c12;
+    color: white;
+}
+
+.clear:hover {
+    background: #d35400;
+}
+
+.delete {
+    background: #e67e22;
+    color: white;
+}
+
+.delete:hover {
+    background: #d35400;
+}
+
+.percentage {
+    background: #1abc9c;
+    color: white;
+}
+
+.percentage:hover {
+    background: #16a085;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .calculator {
+        border-radius: 15px;
+    }
+    
+    .btn {
+        padding: 15px 5px;
+        min-height: 60px;
+        font-size: 1.2rem;
+    }
+    
+    .display {
+        padding: 20px 15px;
+        min-height: 100px;
+    }
+    
+    .current-operand {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .btn {
+        padding: 12px 2px;
+        min-height: 50px;
+        font-size: 1.1rem;
+    }
+    
+    .current-operand {
+        font-size: 1.8rem;
+    }
+}
+
+/* PWA specific styles */
+@media (display-mode: standalone) {
+    body {
+        padding-top: 20px;
+    }
+}
