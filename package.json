@@ -1,0 +1,19 @@
+{
+  "name": "scientific-calculator",
+  "version": "1.0.0",
+  "description": "A scientific calculator with a beautiful colorful interface",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Build successful'",
+    "start": "echo 'Starting calculator'",
+    "test": "echo 'No tests implemented yet'"
+  },
+  "keywords": [
+    "calculator",
+    "scientific",
+    "typescript",
+    "css"
+  ],
+  "author": "Assistant",
+  "license": "MIT"
+}

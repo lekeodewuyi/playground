@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Test Suite</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-results {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+        .test-pass {
+            color: green;
+        }
+        .test-fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator Test Suite</h1>
+    <p>Testing the scientific calculator functionality</p>
+    
+    <div class="calculator-container">
+        <div class="calculator">
+            <div class="display">
+                <input type="text" id="result" readonly>
+            </div>
+            <div class="buttons">
+                <!-- Basic operations -->
+                <button class="btn number" onclick="appendToDisplay('7')">7</button>
+                <button class="btn number" onclick="appendToDisplay('8')">8</button>
+                <button class="btn number" onclick="appendToDisplay('9')">9</button>
+                <button class="btn operator" onclick="appendToDisplay('/')">/</button>
+                
+                <button class="btn number" onclick="appendToDisplay('4')">4</button>
+                <button class="btn number" onclick="appendToDisplay('5')">5</button>
+                <button class="btn number" onclick="appendToDisplay('6')">6</button>
+                <button class="btn operator" onclick="appendToDisplay('*')">×</button>
+                
+                <button class="btn number" onclick="appendToDisplay('1')">1</button>
+                <button class="btn number" onclick="appendToDisplay('2')">2</button>
+                <button class="btn number" onclick="appendToDisplay('3')">3</button>
+                <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+                
+                <button class="btn number" onclick="appendToDisplay('0')">0</button>
+                <button class="btn number" onclick="appendToDisplay('.')">.</button>
+                <button class="btn clear" onclick="clearDisplay()">C</button>
+                <button class="btn equals" onclick="calculate()" rowspan="2">=</button>
+                
+                <!-- Scientific functions -->
+                <button class="btn function" onclick="appendToDisplay('Math.sin(')">sin</button>
+                <button class="btn function" onclick="appendToDisplay('Math.cos(')">cos</button>
+                <button class="btn function" onclick="appendToDisplay('Math.tan(')">tan</button>
+                <button class="btn function" onclick="appendToDisplay('Math.log(')">log</button>
+                
+                <button class="btn function" onclick="appendToDisplay('Math.sqrt(')">√</button>
+                <button class="btn function" onclick="appendToDisplay('Math.pow(')">x^y</button>
+                <button class="btn function" onclick="appendToDisplay('Math.PI')">π</button>
+                <button class="btn function" onclick="appendToDisplay('Math.E')">e</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-results">
+        <h2>Test Results</h2>
+        <p id="test-status">Tests not run yet</p>
+        <ul id="test-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple test suite
+        function runTests() {
+            const testList = document.getElementById('test-list');
+            testList.innerHTML = '';
+            
+            // Test basic operations
+            appendToDisplay('2+2');
+            calculate();
+            const basicTest = display.value === '4' ? 'Pass' : 'Fail';
+            
+            // Test scientific functions
+            clearDisplay();
+            appendToDisplay('Math.sin(Math.PI/2)');
+            calculate();
+            const sinTest = display.value === '1' ? 'Pass' : 'Fail';
+            
+            // Test error handling
+            clearDisplay();
+            appendToDisplay('1/0');
+            calculate();
+            const errorTest = display.value === 'Error' ? 'Pass' : 'Fail';
+            
+            // Add results to UI
+            testList.innerHTML = `
+                <li class="test-${basicTest.toLowerCase()}">Basic arithmetic: ${basicTest}</li>
+                <li class="test-${sinTest.toLowerCase()}">Scientific functions: ${sinTest}</li>
+                <li class="test-${errorTest.toLowerCase()}">Error handling: ${errorTest}</li>
+            `;
+            
+            document.getElementById('test-status').textContent = 'Tests completed';
+        }
+        
+        // Run tests when page loads
+        window.onload = runTests;
+    </script>
+</body>
+</html>
