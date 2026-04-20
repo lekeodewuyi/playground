@@ -1,0 +1,63 @@
+
+# ── ADA managed — artifacts & secrets (do not remove) ───────────────────────
+# Python
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+.npm/
+.yarn/cache/
+.pnp.js
+.next/
+.nuxt/
+.output/
+coverage/
+
+# Build artifacts (language-agnostic)
+dist/
+build/
+out/
+*.o
+*.a
+*.so
+*.dylib
+
+# Environment & secrets — never commit these
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+*.swo
+
+# Rust
+target/
+
+# Go
+vendor/
+
+# Ruby
+vendor/bundle/
+.bundle/
+# ─────────────────────────────────────────────────────────────────────────────
